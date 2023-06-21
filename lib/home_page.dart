@@ -47,7 +47,12 @@ class Homepage extends StatelessWidget {
           ),
         ],
       ),
-      body: feed(), //추출 코드분리
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return feed();
+        },
+      ), //추출 코드분리
       floatingActionButton: FloatingActionButton(
         // 하단 플러스 버튼기능
         onPressed: () {},
