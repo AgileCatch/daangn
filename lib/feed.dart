@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 
 class feed extends StatefulWidget {
   const feed({
+    required this.imageUrl,
     super.key,
   });
+
+  final String imageUrl; // 이미지를 담을 변수
 
   @override
   State<feed> createState() => _feedState();
@@ -24,7 +27,7 @@ class _feedState extends State<feed> {
           borderRadius: BorderRadius.circular(8),
           // 이미지
           child: Image.network(
-            'https://cdn2.thecatapi.com/images/6bt.jpg',
+            widget.imageUrl, // 10번째 줄의 imageUrl 가져오기
             width: 100,
             height: 100,
             fit: BoxFit.cover,
@@ -68,7 +71,7 @@ class _feedState extends State<feed> {
                     onTap: () {
                       //화면갱신
                       setState(() {
-                        isFavorite = !isFavorite;
+                        isFavorite = !isFavorite; //좋아요 토글
                       });
                     },
                     child: Row(
