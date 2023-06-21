@@ -75,8 +75,10 @@ class Homepage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+          SizedBox(width: 12),
           Expanded(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'M1 아이패드 프로 11형(3세대) 와이파이 128G 팝니다.',
@@ -106,15 +108,74 @@ class Homepage extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    // 빈 칸
-                    // 하트 아이콘
-                    // '1'
+                    Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            CupertinoIcons.heart,
+                            color: Colors.black54,
+                            size: 16,
+                          ),
+                          Text(
+                            '1',
+                            style: TextStyle(color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ],
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        // 하단 플러스 버튼기능
+        onPressed: () {},
+        backgroundColor: Color(0xFFFF7E36),
+        elevation: 1,
+        child: Icon(
+          Icons.add_rounded,
+          size: 36,
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        showUnselectedLabels: true,
+        selectedFontSize: 12,
+        unselectedFontSize: 12,
+        iconSize: 28,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_filled),
+            label: '홈',
+            backgroundColor: Colors.white,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.my_library_books_outlined),
+            label: '동네생활',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.fmd_good_outlined),
+            label: '내 근처',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.chat_bubble_2),
+            label: '채팅',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_outline,
+            ),
+            label: '나의 당근',
+          ),
+        ],
+        currentIndex: 0,
       ),
     );
   }
