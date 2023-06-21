@@ -66,13 +66,18 @@ class _feedState extends State<feed> {
                   Spacer(),
                   GestureDetector(
                     onTap: () {
-                      print('heat');
+                      //화면갱신
+                      setState(() {
+                        isFavorite = !isFavorite;
+                      });
                     },
                     child: Row(
                       children: [
                         Icon(
-                          CupertinoIcons.heart,
-                          color: Colors.black54,
+                          isFavorite
+                              ? CupertinoIcons.heart_fill
+                              : CupertinoIcons.heart,
+                          color: isFavorite ? Colors.pink : Colors.black,
                           size: 16,
                         ),
                         Text(
